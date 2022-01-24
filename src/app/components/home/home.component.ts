@@ -22,10 +22,12 @@ export class HomeComponent implements OnInit {
     this.mostrarPaginacion = true;
   }
 
-  async ngOnInit() {
-    const all = await this.charactersService.getAll();
-    const numPages = Math.ceil(all.length / 10);
-    this.pagination = new Array(numPages);
+async ngOnInit() {
+    setTimeout(async () => {
+      const all = await this.charactersService.getAll();
+      const numPages = Math.ceil(all.length / 10);
+      this.pagination = new Array(numPages);
+    }, 0);
 
     //debo discernir entre ruta activa y no ruta activa, si no ruta activa cargo todos los personajes, si hay ruta activa cargo la busqueda
 
